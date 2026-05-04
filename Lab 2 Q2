@@ -1,0 +1,17 @@
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char str[100];
+    printf("Enter a string in upper case");
+    scanf("%[^\n]",&str);
+    int len=strlen(str);
+    for(int i=0;i<len;++i)
+    {
+        str[i]=(char)((int)str[i]+32);
+        
+    }
+    printf("The string is lowercase %s",str);
+
+    return 0;
+}
