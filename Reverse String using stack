@@ -1,0 +1,26 @@
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char str[100], stack[100];
+    int top = -1, i;
+
+    printf("Enter string: ");
+    gets(str);   // simple input (exam style)
+
+    // Push all characters into stack
+    for(i = 0; str[i] != '\0'; i++) {
+        top++;
+        stack[top] = str[i];
+    }
+
+    // Pop characters back into string
+    for(i = 0; i < strlen(str); i++) {
+        str[i] = stack[top];
+        top--;
+    }
+
+    printf("Reversed string: %s", str);
+
+    return 0;
+}
