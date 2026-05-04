@@ -1,0 +1,32 @@
+#include <stdio.h>
+int cal(int c,int n,int a[])
+{
+    if(c==n)
+    return 0;
+    else
+    {
+        return cal(c+1,n,a)+a[c];
+    }
+}
+
+int main() {
+  int n;
+  printf("Enter the size of the array");
+  scanf("%d",&n);
+  int a[n];
+  for(int i=0;i<n;++i)
+  {
+      printf("Enter a number ");
+      scanf("%d",&a[i]);
+  }
+  int sum=0;
+  for(int i=0;i<n;++i)
+  {
+      sum=sum+a[i];
+  }
+  printf("The sum through iteration is %d\n",sum);
+  int c=0;
+  int sum2=cal(c,n,a);
+  printf("The sum by recursion is %d",sum2);
+    return 0;
+}
