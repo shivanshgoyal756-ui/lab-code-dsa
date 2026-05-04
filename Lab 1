@@ -1,0 +1,140 @@
+#include <stdio.h>
+
+int main() {
+    int ch=0;
+    printf("Enter 1 for insert at desired loc \nEnter 2 for del element at desired loc \nenter 3 search an elemnt using linear search\nEnter 4 Search an element using Binary Search\nEnter 5 for Search an element using bubble sort");
+    scanf("%d",&ch);
+    int size;
+   printf("enter the size of array");
+   scanf("%d",&size);
+   int arr[size+1];
+   for(int i=0;i<size;++i)
+   {
+       printf("Enter the element");
+       scanf("%d",&arr[i]);
+   }
+    switch(ch)
+    {
+        case 1:
+        int n1,l1;
+        printf("Enter the number to be inserted");
+        scanf("%d",&n1);
+        printf("Enter the loc of  number to be inserted");
+        scanf("%d",&l1);
+        for(int i=size;i>l1;--i)
+        {
+            arr[i]=arr[i-1];
+        }
+        arr[l1]=n1;
+        for(int i=0;i<=size;++i)
+        {
+            printf("%d ",arr[i]);
+        }
+        
+        break;
+        
+        
+        case 2:
+        int l2;
+        printf("Enter the loc at which number is to be deleted ");
+        scanf("%d",&l2);
+        for(int i=l2;i<size-1;++i)
+        {
+            arr[i]=arr[i+1];
+        }
+        for(int i=0;i<size-1;++i)
+        {
+            printf("%d ",arr[i]);
+        }
+        break;
+        
+        
+        
+        
+        
+    case 3:
+   int num;
+   printf("Enter the number to be searched");
+   scanf("%d",&num);
+ 
+   
+   int b=0;
+   for(int i=0;i<size;++i)
+   {
+       if(arr[i]==num)
+       {
+           
+       b=1;
+       printf("Search sucessfull");
+       }
+   }
+   if(b!=1)
+   {
+       printf("Search unsucessfull");
+   }
+   break;
+   
+   
+   case 4:
+   int n2;
+   printf("Enter the num to be searched ");
+   scanf("%d",&n2);
+   int st=0;
+   int d=0;
+   int end=size-1;
+   while (st<=end)
+   {
+       int mid=(st+end)/2;
+       if(arr[mid]==n2)
+       {
+       printf("Searched success");
+       d=1;
+       break;
+       }
+       else
+       {
+           if(arr[mid]>n2)
+           {
+               st=0;
+               end=mid-1;
+           }
+           else
+           {
+               st=mid+1;
+           }
+       }
+       
+       
+   }
+   if(d=0)
+   printf("Uncessfull");
+   break;
+   
+   
+   case 5:
+   for(int i=0;i<size-1;++i)
+   {
+       for(int j=0;j<size-i-1;++j)
+       {
+           if(arr[j]>arr[j+1])
+           {
+               int t=arr[j];
+               arr[j]=arr[j+1];
+               arr[j+1]=t;
+           }
+       }
+   }
+    for(int i=0;i<size;++i)
+        {
+            printf("%d ",arr[i]);
+        }
+     break;
+     
+     case 6:
+     
+   }
+   
+    
+   
+    return 0;
+}
