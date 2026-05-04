@@ -1,1 +1,37 @@
 
+#include <stdio.h>
+
+int tree[100];
+
+void setRoot(int key) {
+    tree[1] = key;
+}
+
+void setLeft(int key, int parent) {
+    int index = 2 * parent;
+    tree[index] = key;
+}
+
+void setRight(int key, int parent) {
+    int index = 2 * parent + 1;
+    tree[index] = key;
+}
+
+void printTree(int n) {
+    for (int i = 1; i <= n; i++) {
+        if (tree[i] != 0)
+            printf("%d ", tree[i]);
+        else
+            printf("- ");
+    }
+}
+
+int main() {
+    setRoot(1);
+    setLeft(2,1);
+    setRight(3,1);
+    setLeft(4,2);
+    setRight(5,2);
+    printTree(7);
+    return 0;
+}
